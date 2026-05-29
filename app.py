@@ -15,7 +15,8 @@ st.set_page_config(
 
 @st.cache_data
 def load_data():
-    df = pd.read_csv("APL_Logistics.csv", encoding="latin1")
+    url = "https://drive.google.com/uc?export=download&id=1V7i4x2-BIN7sZDsZNgSkyHRGYXqe6r_m"
+    df = pd.read_csv(url, encoding="latin1")
     df["Delay Gap"] = df["Days for shipping (real)"] - df["Days for shipment (scheduled)"]
     def classify(gap):
         if gap > 0: return "Delayed"
